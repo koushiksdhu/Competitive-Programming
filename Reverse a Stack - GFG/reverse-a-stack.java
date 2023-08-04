@@ -47,14 +47,14 @@ class Solution
 { 
     static void reverse(Stack<Integer> s)
     {
-        ArrayList<Integer> al = new ArrayList<>();
-        
+        Queue<Integer> Q = new LinkedList<>();
         
         while(!s.isEmpty()){
-            al.add(s.pop());
+            Q.add(s.pop());
         }
-        for(int i : al){
-            s.push(i);
+        
+        while(!Q.isEmpty()){
+            s.push(Q.poll());
         }
     }
 }
