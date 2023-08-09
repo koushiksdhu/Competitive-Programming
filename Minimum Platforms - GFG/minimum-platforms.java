@@ -48,29 +48,41 @@ class Solution
     static int findPlatform(int arr[], int dep[], int n)
     {
         
-       Arrays.sort(arr);
+        Arrays.sort(arr);
         Arrays.sort(dep);
 
-        int platforms = 1; // Minimum one platform will be needed
-        int result = 1;
-        int i = 1; // Pointer for arrival times
-        int j = 0; // Pointer for departure times
+        // int platforms = 1; // Minimum one platform will be needed
+        // int result = 1;
+        // int i = 1; // Pointer for arrival times
+        // int j = 0; // Pointer for departure times
 
-        while (i < n && j < n) {
-            if (arr[i] <= dep[j]) {
-                platforms++;
-                i++;
+        // while (i < n && j < n) {
+        //     if (arr[i] <= dep[j]) {
+        //         platforms++;
+        //         i++;
 
-                if (platforms > result) {
-                    result = platforms;
-                }
-            } else {
-                platforms--;
-                j++;
-            }
-        }
-
-        return result;
+        //         if (platforms > result) {
+        //             result = platforms;
+        //         }
+        //     } else {
+        //         platforms--;
+        //         j++;
+        //     }
+        // }
+        
+       int i = 1, j = 0, pf = 1, tpf = pf;
+       while(i < n && j < n){
+           if(arr[i] <= dep[j]){
+               pf++;
+               i++;
+               tpf = Math.max(pf, tpf);
+           }
+           else{
+               pf--;
+               j++;
+           }
+       }
+        return tpf;
         
         
     }
