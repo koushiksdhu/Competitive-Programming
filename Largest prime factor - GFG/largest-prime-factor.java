@@ -48,14 +48,12 @@ class Solution{
     // Optimal appraoch:
     
         long lgPrime = -1;
-        long i = 2;
         
-        while(i*i <= N){
+        for(int i = 2; i * i <= N; i++){
             while(N % i == 0){
                 lgPrime = i;
-                N /= i;        // equivalent to n /= i
+                N /= i;        
             }
-            i++;
         }
         if(N > 1)
             lgPrime =N;
