@@ -36,10 +36,9 @@ class Solution {
         int count = 0;
         n = arr.length-1;
         while(n >= 0){
-            if(arr[n] == 1)
+            if(arr[n--] == 1)
                 break;
             count++;
-            n--;
         }
         return count;
     }
