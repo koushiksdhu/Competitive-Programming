@@ -50,10 +50,9 @@ class Solution
                 if(hm1.get(c1) != c2)
                     return false;
            }
-           else{
-                if(hm2.containsKey(c2))
+           else if(hm2.containsKey(c2))
                     return false;
-           }
+
            hm1.put(c1, c2);
            hm2.put(c2, c1);
        }
