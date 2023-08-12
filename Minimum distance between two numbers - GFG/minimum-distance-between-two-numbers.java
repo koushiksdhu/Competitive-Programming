@@ -33,19 +33,13 @@ class Solution {
         int dis = Integer.MAX_VALUE;
         
         for(int i = 0; i < a.length; i++) {
-            if(a[i] == x) {
+            if(a[i] == x) 
                 first = i;
-                if(second != -1) {
-                    dis = Math.min(dis, Math.abs(second - first));
-                }
-            } else if(a[i] == y) {
+            else if(a[i] == y)
                 second = i;
-                if(first != -1) {
-                    dis = Math.min(dis, Math.abs(second - first));
-                }
-            }
+            if(first != -1 && second != -1)
+                dis = Math.min(dis, Math.abs(second-first));
         }
-        
         return dis == Integer.MAX_VALUE ? -1 : dis;
     }
 }
