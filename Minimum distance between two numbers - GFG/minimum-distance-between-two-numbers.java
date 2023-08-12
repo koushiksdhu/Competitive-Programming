@@ -37,7 +37,7 @@ class Solution {
                 first = i;
             else if(a[i] == y)
                 second = i;
-            if(first != -1 && second != -1)
+            if(first > -1 && second > -1)
                 dis = Math.min(dis, Math.abs(second-first));
         }
         return dis == Integer.MAX_VALUE ? -1 : dis;
