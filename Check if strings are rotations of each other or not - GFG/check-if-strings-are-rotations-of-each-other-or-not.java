@@ -45,7 +45,7 @@ class Solution
     //Function to check if two strings are rotations of each other or not.
     public static boolean areRotations(String s1, String s2 )
     {
-        
+        // double the first string and check whether it contains the s2 or not. if yes return true else false
         String temp = s1+s1;
         if(temp.contains(s2))
             return s1.length() == s2.length() && true;
