@@ -23,12 +23,12 @@ class GFG {
 //User function Template for Java
 class Solution {
     static int nthFibonacci(int n){
-        long arr[] = new long[n+1];
+        int arr[] = new int[n+1];
         arr[0] = 0;
         arr[1] = 1;
         for(int i = 2; i < arr.length; i++){
-            arr[i] = ((long)arr[i-1] + arr[i-2]) % (long)(10e8+7);
+            arr[i] = (arr[i-1] + arr[i-2]) % (int)(10e8+7);
         }
-        return (int)arr[n];
+        return arr[n];
     }
 }
