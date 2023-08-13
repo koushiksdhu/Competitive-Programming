@@ -53,9 +53,9 @@ class MyStack
     //Function to push an integer into the stack.
     void push(int a) 
     {
-        StackNode t = new StackNode(a);
-        t.next = top;
-        top = t;
+        StackNode temp = new StackNode(a);
+        temp.next = top;
+        top = temp;
     }
     
     //Function to remove an item from top of the stack.
@@ -65,10 +65,10 @@ class MyStack
         if(top == null)
             return x;
         else{
-            StackNode  p = top;
+            StackNode temp = top;
             top = top.next;
-            x = p.data;
+            x = temp.data;
         }
         return x;
-    }
+    }   
 }
