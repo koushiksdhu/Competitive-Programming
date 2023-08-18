@@ -10,24 +10,50 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        ArrayList<Integer> al = new ArrayList<>();
 
-        ListNode temp = head;
-        while(temp != null){
-            al.add(temp.val);
-            temp = temp.next;
+        // Brute Force Approach:
+
+        // StringBuilder sb = new StringBuilder();
+        // ListNode temp = head;
+        // while(temp != null){
+        //     sb.append(temp.val);
+        //     temp = temp.next;
+        // }
+
+        // return sb.toString().equals(sb.reverse().toString());
+
+
+
+        // Optimized Approach:
+
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while(fast.next != null && fast.next.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
         }
+        slow.next = reverse(slow.next);
+        slow = slow.next;
 
-        return reverse(al);
-    }
-    boolean reverse(ArrayList<Integer> al){
-        int i = 0;
-        int j = al.size()-1;
-
-        while(i < j){
-            if(al.get(i++) != al.get(j--))
+        ListNode dummy = head;
+        while(slow != null){
+            if(dummy.val != slow.val)
                 return false;
+            dummy = dummy.next;
+            slow = slow.next;
         }
-        return true;
+    return true;
+    }
+    ListNode reverse(ListNode first){
+        ListNode prev = null;
+        
+        while(first != null){
+            ListNode next = first.next;
+            first.next = prev;
+            prev = first;
+            first = next;
+        }
+        return prev;
     }
 }
