@@ -16,7 +16,9 @@ class Solution {
         int sum = 0, carry = 0;
 
         while(l1 != null || l2 != null || carry != 0){
+
             sum = 0;
+            
             if(l1 != null){
                 sum = l1.val;
                 l1 = l1.next;
