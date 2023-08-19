@@ -36,38 +36,60 @@ public class Solution {
 
         // First Optimal Approach:
 
+        // ListNode tempA = headA;
+        // ListNode tempB = headB;
+
+        // int sizeA = 0, sizeB = 0;
+
+        // while(tempA != null){
+        //     sizeA++;
+        //     tempA = tempA.next;
+        // }
+        // while(tempB != null){
+        //     sizeB++;
+        //     tempB = tempB.next;
+        // }
+
+        // tempA = headA;
+        // tempB = headB;
+        // int size = Math.abs(sizeA - sizeB);
+
+        // if(sizeA > sizeB){
+        //     for(int i = 1; i <= size; i++)
+        //         tempA = tempA.next;
+        // }
+        // else{
+        //     for(int i = 1; i <= size; i++)
+        //         tempB = tempB.next;
+        // }
+        // while(tempA != null){
+        //     if(tempA == tempB)
+        //         return tempA;
+        //     tempA = tempA.next;
+        //     tempB = tempB.next;
+        // }
+        // return null;
+
+
+
+
+
+        // Most Optimal Approach:
+
         ListNode tempA = headA;
         ListNode tempB = headB;
 
-        int sizeA = 0, sizeB = 0;
-
-        while(tempA != null){
-            sizeA++;
-            tempA = tempA.next;
-        }
-        while(tempB != null){
-            sizeB++;
-            tempB = tempB.next;
-        }
-
-        tempA = headA;
-        tempB = headB;
-        int size = Math.abs(sizeA - sizeB);
-
-        if(sizeA > sizeB){
-            for(int i = 1; i <= size; i++)
+        while(tempA != tempB){
+            if(tempA == null)
+                tempA = headB;
+            else
                 tempA = tempA.next;
-        }
-        else{
-            for(int i = 1; i <= size; i++)
+
+            if(tempB == null)
+                tempB = headA;
+            else
                 tempB = tempB.next;
         }
-        while(tempA != null){
-            if(tempA == tempB)
-                return tempA;
-            tempA = tempA.next;
-            tempB = tempB.next;
-        }
-        return null;
+        return tempA;
     }
 }
