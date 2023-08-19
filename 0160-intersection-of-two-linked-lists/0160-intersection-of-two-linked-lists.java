@@ -62,7 +62,7 @@ public class Solution {
             for(int i = 1; i <= size; i++)
                 tempB = tempB.next;
         }
-        while(tempA != null && tempB != null){
+        while(tempA != null){
             if(tempA == tempB)
                 return tempA;
             tempA = tempA.next;
