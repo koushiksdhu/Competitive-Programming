@@ -80,15 +80,8 @@ public class Solution {
         ListNode tempB = headB;
 
         while(tempA != tempB){
-            if(tempA == null)
-                tempA = headB;
-            else
-                tempA = tempA.next;
-
-            if(tempB == null)
-                tempB = headA;
-            else
-                tempB = tempB.next;
+            tempA = tempA == null ? headB : tempA.next;
+            tempB = tempB == null ? headA : tempB.next;
         }
         return tempA;
     }
