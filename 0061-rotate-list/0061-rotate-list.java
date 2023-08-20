@@ -15,25 +15,27 @@ class Solution {
             return head;
         
         // Brute Force:
-        ListNode temp = head;
-        int size = 0;
-        while(temp != null){
-            size++;
-            temp = temp.next;
-        }
-        k = k % size;
-        if(k == 0)
-            return head;
-        for(int i = 1; i <= k; i++){
-            ListNode node = head;
-            while(node.next.next != null){
-                node = node.next;
-            }
-            node.next.next = head;
-            head = node.next;
-            node.next = null;
-        }
-        return head;
+
+        // ListNode temp = head;
+        // int size = 0;
+        // while(temp != null){
+        //     size++;
+        //     temp = temp.next;
+        // }
+        // k = k % size;
+        // if(k == 0)
+        //     return head;
+
+        // for(int i = 1; i <= k; i++){
+        //     ListNode node = head;
+        //     while(node.next.next != null){
+        //         node = node.next;
+        //     }
+        //     node.next.next = head;
+        //     head = node.next;
+        //     node.next = null;
+        // }
+        // return head;
 
 
 
@@ -43,28 +45,28 @@ class Solution {
 
         // Optimized Approach:
 
-        // ListNode tail = head;
+        ListNode tail = head;
 
-        // int size = 1;
-        // while(tail.next != null){
-        //     size++;
-        //     tail = tail.next;
-        // }
+        int size = 1;
+        while(tail.next != null){
+            size++;
+            tail = tail.next;
+        }
 
-        // k = k % size;
+        k = k % size;
         
-        // if(k == 0)      // if the value of k and length of the linked list is same then return.
-        //     return head;
+        if(k == 0)      // if the value of k and length of the linked list is same then return.
+            return head;
         
-        // ListNode rotateNode = head;
+        ListNode rotateNode = head;
 
-        // for(int i = 1; i < size-k; i++){
-        //     rotateNode = rotateNode.next;
-        // }
+        for(int i = 1; i < size-k; i++){
+            rotateNode = rotateNode.next;
+        }
 
-        // tail.next = head;
-        // head = rotateNode.next;
-        // rotateNode.next = null;
-        // return head;
+        tail.next = head;
+        head = rotateNode.next;
+        rotateNode.next = null;
+        return head;
     }
 }
