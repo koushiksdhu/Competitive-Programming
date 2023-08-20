@@ -10,28 +10,32 @@
  */
 class Solution {
     public ListNode rotateRight(ListNode head, int k) {
-
-        if(head == null || k == 0)
+        
+        if(head == null || head.next == null)
             return head;
-        ListNode last = head;
-        int size = 1;
-        while(last.next != null){
-            size++;
-            last = last.next;
-        }
-
-        k = k % size;
-        if(k == 0)
-            return head;
-
+        
         ListNode tail = head;
-        for(int i = 1; i < size-k; i++){
+
+        int size = 1;
+        while(tail.next != null){
+            size++;
             tail = tail.next;
         }
 
-        last.next = head;
-        head = tail.next;
-        tail.next = null;
-    return head;
+        k = k % size;
+        
+        if(k == 0)      // if the value of k and length of the linked list is same then return.
+            return head;
+        
+        ListNode rotateNode = head;
+
+        for(int i = 1; i < size-k; i++){
+            rotateNode = rotateNode.next;
+        }
+
+        tail.next = head;
+        head = rotateNode.next;
+        rotateNode.next = null;
+        return head;
     }
 }
