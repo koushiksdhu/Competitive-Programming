@@ -10,6 +10,9 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
+
+        // Using Iteration:
+
         ListNode prev = null;
         ListNode current = head;
         
@@ -22,5 +25,9 @@ class Solution {
         }
         head = prev;
         return head;
+
+        // Using Recursion:
+
+        
     }
 }
