@@ -5,9 +5,10 @@ class Solution {
 
         for(int i = 0; i < groupSizes.length; i++){
             if(hm.containsKey(groupSizes[i])){
-                ArrayList<Integer> temp = hm.get(groupSizes[i]);
-                temp.add(i);
-                hm.put(groupSizes[i], temp);
+                // ArrayList<Integer> temp = hm.get(groupSizes[i]);
+                // temp.add(i);
+                // hm.put(groupSizes[i], temp);
+                hm.get(groupSizes[i]).add(i);
                 if(hm.get(groupSizes[i]).size() == groupSizes[i]){
                     al.add(hm.get(groupSizes[i]));
                     hm.remove(groupSizes[i]);
