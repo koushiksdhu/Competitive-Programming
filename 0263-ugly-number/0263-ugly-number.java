@@ -4,6 +4,8 @@ class Solution {
             for(int i = 2; i < 6; i++){
                 while(n % i == 0)
                     n /= i;
+                if (n == 1)
+                    break;
             }
         }
         return n == 1;
