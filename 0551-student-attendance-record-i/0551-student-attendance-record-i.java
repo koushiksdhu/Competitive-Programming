@@ -6,8 +6,8 @@ class Solution {
                 a++;
         }
 
-        for(int i = 0; i < s.length()-1; i++){
-            if(s.charAt(i) == 'L' && s.charAt(i) == s.charAt(i+1))
+        for(int i = 0; i < s.length(); i++){
+            if(i+1 < s.length() && s.charAt(i) == 'L' && s.charAt(i) == s.charAt(i+1))
                 l++;
             else{
                 lMax = Math.max(lMax, l);
