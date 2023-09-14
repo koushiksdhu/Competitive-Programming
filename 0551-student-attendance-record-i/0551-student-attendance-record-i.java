@@ -4,14 +4,13 @@ class Solution {
         for(int i = 0; i < s.length(); i++){
             if(s.charAt(i) == 'A')
                 a++;
-        }
-
-        for(int i = 0; i < s.length(); i++){
-            if(i+1 < s.length() && s.charAt(i) == 'L' && s.charAt(i) == s.charAt(i+1))
-                l++;
             else{
-                lMax = Math.max(lMax, l);
-                l = 1;
+                if(i+1 < s.length() && s.charAt(i) == 'L' && s.charAt(i) == s.charAt(i+1))
+                    l++;
+                else{
+                    lMax = Math.max(lMax, l);
+                    l = 1;
+                }
             }
         }
         lMax = Math.max(lMax, l);
