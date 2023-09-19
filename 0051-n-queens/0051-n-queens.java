@@ -12,32 +12,6 @@ class Solution {
         return res;
     }
 
-    static boolean validate(char[][] board, int row, int col){
-        int dupRow = row, dupCol = col;
-        while(row >= 0 && col >= 0){
-            if(board[row][col] == 'Q')
-                return false;
-                row--;
-                col--;
-        }
-
-        row = dupRow; col = dupCol;
-        while(col >= 0){
-            if(board[row][col] == 'Q')
-                return false;
-            col--;
-        }
-
-        row = dupRow; col = dupCol;
-        while(col >= 0 && row < board.length){
-            if(board[row][col] == 'Q')
-                return false;
-            col--;
-            row++;
-        }
-        return true;
-    }
-
     static void search(int col, char[][] board, List<List<String>> res){
         if(col == board.length){
             res.add(construct(board));
@@ -53,8 +27,34 @@ class Solution {
         }
     }
 
+    static boolean validate(char[][] board, int row, int col){
+        int dupRow = row, dupCol = col;
+        while(row >= 0 && col >= 0){        // diagonal checking - Up to 'Q'
+            if(board[row][col] == 'Q')
+                return false;
+                row--;
+                col--;
+        }
+
+        row = dupRow; col = dupCol;         // Horizontal Checking
+        while(col >= 0){
+            if(board[row][col] == 'Q')
+                return false;
+            col--;
+        }
+
+        row = dupRow; col = dupCol;
+        while(col >= 0 && row < board.length){      // diagonal checking - 'Q' to Down
+            if(board[row][col] == 'Q')
+                return false;
+            col--;
+            row++;
+        }
+        return true;
+    }
+
     static List<String> construct(char board[][]){
-        List<String> res = new LinkedList<>();
+        List<String> res = new ArrayList<>();
         for(int i = 0; i < board.length; i++){
             String s = new String(board[i]);
             res.add(s);
