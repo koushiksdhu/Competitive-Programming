@@ -12,11 +12,11 @@ class Solution {
                 bob++;
             }
         }
-        if(alice > 0 && bob == 0)
-            return true;
-        else if(bob > 0 && alice == 0)
-            return false;
-        else if(alice == bob)
+        // if(alice > 0 && bob == 0)
+        //     return true;
+        // else if(bob > 0 && alice == 0)
+        //     return false;
+        if(alice == bob)
             return false;
         return alice >= bob;
     }
