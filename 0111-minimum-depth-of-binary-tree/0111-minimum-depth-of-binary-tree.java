@@ -16,11 +16,11 @@
 class Solution {
     public int minDepth(TreeNode root) {
         int ans = handlerFunction(root);
-        return ans == (int)1e9 ? 0 : ans; 
+        return ans == Integer.MAX_VALUE ? 0 : ans; 
     }
     int handlerFunction(TreeNode root){
          if(root == null)
-            return (int)1e9;
+            return Integer.MAX_VALUE;
 
         else if(root.left == null && root.right == null)
             return 1;
