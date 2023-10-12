@@ -1,18 +1,19 @@
 class Solution {
     public int characterReplacement(String s, int k) {
         HashMap<Character, Integer> hm = new HashMap<>();
-        int ans = 0, j = 0, max = 0;
+        int len = 0, i = 0, j = 0, max = 0;
 
-        for(int i = 0; i < s.length(); i++){
-            hm.put(s.charAt(i), hm.getOrDefault(s.charAt(i), 0) + 1);
-            max = Math.max(max, hm.get(s.charAt(i)));
-            while ((i - j + 1 - max) > k){
-                hm.put(s.charAt(j), hm.get(s.charAt(j)) - 1);
-                j++;
+        while(j < s.length()){
+            hm.put(s.charAt(j), hm.getOrDefault(s.charAt(j), 0) + 1);
+            max = Math.max(max, hm.get(s.charAt(j)));
+
+            while((j - i + 1 - max) > k){
+                hm.put(s.charAt(i), hm.get(s.charAt(i)) - 1);
+                i++;
             }
-
-            ans = Math.max(ans, i - j + 1);
+            len = Math.max(len, j - i + 1);
+            j++;
         }
-        return ans;
+        return len;
     }
 }
