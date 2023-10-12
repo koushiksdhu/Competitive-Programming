@@ -26,10 +26,7 @@ class Solution {
         for(int i : nums) {
             currSum += i;
             count += hm.getOrDefault(currSum - goal, 0);
-            if(hm.containsKey(currSum))
-                hm.put(currSum, hm.get(currSum) + 1);
-            else
-                hm.put(currSum, 1);
+                hm.put(currSum, hm.getOrDefault(currSum, 0) + 1);
         }
         return count;
     }
