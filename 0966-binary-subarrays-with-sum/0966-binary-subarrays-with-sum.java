@@ -26,7 +26,7 @@ class Solution {
         for(int i : nums) {
             currSum += i;
             count += hm.getOrDefault(currSum - goal, 0);
-                hm.put(currSum, hm.getOrDefault(currSum, 0) + 1);
+            hm.put(currSum, hm.getOrDefault(currSum, 0) + 1);
         }
         return count;
     }
