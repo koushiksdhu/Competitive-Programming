@@ -18,7 +18,6 @@ class Solution {
         int max[] = new int[]{Integer.MIN_VALUE};
         sum(root, max);
         return max[0];
-
     }
     int sum(TreeNode node, int max[]){
         if(node == null)
