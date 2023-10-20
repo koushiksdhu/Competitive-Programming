@@ -31,12 +31,7 @@ class Solution {
         long sum = 0;
         for(int i : arr)
             sum += i;
-        
-        int totDigit = 0;
-        while(sum > 0){
-            totDigit += sum % 10;
-            sum /= 10;
-        }
-        return totDigit % 3 == 0 ? 1 : 0;
+            
+        return sum % 3 == 0 ? 1 : 0;
     }
 }
