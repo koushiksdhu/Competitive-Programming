@@ -15,16 +15,21 @@
  */
 class Solution {
     public int kthSmallest(TreeNode root, int k) {
-        ArrayList<Integer> al = new ArrayList<>();
-        Traverse(root, al);
-        Collections.sort(al);
-        return al.get(k-1);
+        int ans[] = new int[1];
+        int count[] = new int[1];
+        Traverse(root, count, ans, k);
+        return ans[0];
     }
-    void Traverse(TreeNode root, ArrayList<Integer> al){
+    void Traverse(TreeNode root, int count[], int ans[], int k){
         if(root == null)
             return;
-        al.add(root.val);
-        Traverse(root.left, al);
-        Traverse(root.right, al);
+        Traverse(root.left, count, ans, k);
+        if(++count[0] == k){
+            ans[0] = root.val;
+            return;
+        }
+        Traverse(root.right, count, ans, k);
     }
 }
+
+// The Inorder in every binay search tree is always in sorted order.
