@@ -17,19 +17,17 @@ class Solution {
     public int[] findMode(TreeNode root) {
         HashMap<Integer, Integer> hm = new HashMap<>();
         inorder(root, hm);
-        int mode = 0;
-        for(int v : hm.values()) {
-            mode = Math.max(mode, v);
-        }
+        int maxValue = Collections.max(hm.values());
+
         int count = 0;
         for(int v : hm.values()) {
-            if(v == mode)
+            if(v == maxValue)
                 count++;
         }
         int ans[] = new int[count];
         int i = 0;
         for(int key : hm.keySet()){
-            if(hm.get(key) == mode)
+            if(hm.get(key) == maxValue)
                 ans[i++] = key;
         }
         return ans;
