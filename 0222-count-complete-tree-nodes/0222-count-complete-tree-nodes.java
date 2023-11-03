@@ -15,15 +15,8 @@
  */
 class Solution {
     public int countNodes(TreeNode root) {
-        int c[] = new int[1];
-        count(root, c);
-        return c[0];
-    }
-    void count(TreeNode root, int[] count) {
         if(root == null)
-            return;
-        count(root.left, count);
-        count[0]++;
-        count(root.right, count);
+            return 0;
+        return 1 + countNodes(root.left) + countNodes(root.right);
     }
 }
