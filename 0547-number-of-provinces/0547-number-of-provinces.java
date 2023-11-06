@@ -15,21 +15,30 @@ class Solution {
         }
         int V = adj.size();
         boolean vis[] = new boolean[V+1];
+        Queue<Integer> q = new LinkedList<>();
         int count = 0;
         for(int i = 0; i < V; i++) {
             if(!vis[i]){
                 count++;
-                dfs(i, adj, vis);
+                bfs(i, adj, vis, q);
             }
         }
         return count;
     }
 
-    void dfs(int i, ArrayList<ArrayList<Integer>> adj, boolean vis[]) {
+    void bfs(int i, ArrayList<ArrayList<Integer>> adj, boolean vis[], Queue<Integer> q) {
+        q.add(i);
         vis[i] = true;
-        for(int idx : adj.get(i)){
-            if(!vis[idx])
-                dfs(idx, adj, vis);
+
+        while(!q.isEmpty()) {
+            int node = q.poll();
+
+            for(int data : adj.get(node)){
+                if(!vis[data]){
+                    q.add(data);
+                    vis[data] = true;
+                }
+            }
         }
     }
 }
