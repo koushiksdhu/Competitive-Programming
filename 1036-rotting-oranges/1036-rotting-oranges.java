@@ -21,8 +21,6 @@ class Solution {
                     q.add(new Pair(i, j, 0));
                     vis[i][j] = true;
                 }
-                // else if(grid[i][j] == 0)
-                //     vis[i][j] = true;
             }
         }
         int count = 0;
@@ -31,7 +29,7 @@ class Solution {
             for(int i = 0; i < r.length; i++) {
                 int row = pairData.row + r[i];
                 int col = pairData.col + c[i];
-                count = Math.max(count, pairData.count);
+                count =pairData.count;
             if(row >= 0 && row < grid.length && col >= 0 && col < grid[0].length && grid[row][col] == 1 && vis[row][col] == false) {               grid[row][col] = 2;
                 q.add(new Pair(row, col, count+1));
                 vis[row][col] = true;
