@@ -21,8 +21,8 @@ class Solution {
                     q.add(new Pair(i, j, 0));
                     vis[i][j] = true;
                 }
-                else if(grid[i][j] == 0)
-                    vis[i][j] = true;
+                // else if(grid[i][j] == 0)
+                //     vis[i][j] = true;
             }
         }
         int count = 0;
