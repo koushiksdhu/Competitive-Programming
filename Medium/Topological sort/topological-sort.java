@@ -71,13 +71,11 @@ class Solution
         }
         
         int ans[] = new int[stk.size()];
-        int i = 0;
-        while(!stk.isEmpty()) {
-            ans[i++] = stk.pop();
+        for(int i = 0; i < ans.length; i++) {
+            ans[i] = stk.pop();
         }
         return ans;
     }
-    
     static void dfs(int node, ArrayList<ArrayList<Integer>> adj, boolean vis[], Stack<Integer> stk) {
         vis[node] = true;
         
