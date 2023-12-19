@@ -93,50 +93,46 @@ class Solution
         
         for(int i = 0; i < N-1; i++) {
             String s1 = dict[i];
-            String s2 = dict[i+1];
-            int len = Math.min(s1.length(), s2.length());
-            for(int p = 0; p < len; p++) {
-                if(s1.charAt(p) != s2.charAt(p)) {
-                    adj.get(s1.charAt(p) - 'a').add(s2.charAt(p) - 'a');
+            String s2 = dict[i + 1];
+            int l = Math.min(s1.length(), s2.length());
+            for(int ptr = 0; ptr < l; ptr++) {
+                if(s1.charAt(ptr) != s2.charAt(ptr)) {
+                    adj.get(s1.charAt(ptr) - 'a').add(s2.charAt(ptr) - 'a');
                     break;
                 }
             }
         }
-        List<Integer> topo = new ArrayList<>();
-        topoSort(K, adj, topo);
-        StringBuilder sb = new StringBuilder();
-        for(int i : topo) {
-            sb.append((char)(i + 'a'));
+        List<Integer> topo = topoSort(K, adj);
+        String ans = "";
+        for(int idx : topo) {
+            ans = ans + (char)(idx + (int)('a'));
         }
-        return sb.toString();
-        
+        return ans;
     }
     
-    void topoSort(int K, List<List<Integer>> adj, List<Integer> topo) {
-        int indegree[] = new int [K];
-        for(int i = 0; i < K; i++) {
-            for(int idx : adj.get(i)) {
-                indegree[idx]++;
-            }
+    List<Integer> topoSort(int V, List<List<Integer>> adj) {
+        int indegree[] = new int[V];
+        for(int i = 0; i < V; i++) {
+            for(int it : adj.get(i))
+                indegree[it]++;
         }
         
-        
         Queue<Integer> q = new LinkedList<>();
-        
-        for(int i = 0; i < K; i++) {
+        for(int i = 0; i < V; i++) {
             if(indegree[i] == 0)
                 q.add(i);
         }
         
+        List<Integer> topo = new ArrayList<>();
         while(!q.isEmpty()) {
             int node = q.poll();
             topo.add(node);
-            
             for(int idx : adj.get(node)) {
                 indegree[idx]--;
                 if(indegree[idx] == 0)
                     q.add(idx);
             }
         }
+        return topo;
     }
 }
