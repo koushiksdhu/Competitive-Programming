@@ -18,7 +18,7 @@ class Solution{
        HashMap<Integer, Integer> hm = new HashMap<>();
        int sum = 0, ans = 0;
        
-       hm.put(0, 0);
+      hm.put(0, 0);
        for(int i = 0; i < n; i++) {
            sum += arr[i];
            int rem = sum % k;
