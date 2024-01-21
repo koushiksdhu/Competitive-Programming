@@ -39,7 +39,7 @@ class Solution {
             adj.add(new ArrayList<>());
         }
         
-        for(int i = 0; i < m; i++) {
+        for(int i = 0; i < edges.length; i++) {
             adj.get(edges[i][0]).add(edges[i][1]);
             adj.get(edges[i][1]).add(edges[i][0]);
         }
@@ -57,7 +57,7 @@ class Solution {
         while(!q.isEmpty()) {
             int node = q.poll();
             for(int idx : adj.get(node)) {
-                if((dist[node] + 1) < dist[idx]) {
+                if(dist[node] + 1 < dist[idx]) {
                     dist[idx] = dist[node] + 1;
                     q.add(idx);
                 }
