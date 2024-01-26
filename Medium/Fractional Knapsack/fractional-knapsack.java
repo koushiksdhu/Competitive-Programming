@@ -25,7 +25,7 @@ class GfG {
             for(int i=0, k=0; i<n; i++){
                 arr[i] = new Item(Integer.parseInt(inputLine[k++]), Integer.parseInt(inputLine[k++]));
             }
-            System.out.println(String.format("%.2f", new Solution().fractionalKnapsack(w, arr, n)));
+            System.out.println(String.format("%.6f", new Solution().fractionalKnapsack(w, arr, n)));
         }
     }
 }
@@ -47,33 +47,26 @@ class Solution
     //Function to get the maximum total value in the knapsack.
     double fractionalKnapsack(int W, Item arr[], int n) 
     {
-        Arrays.sort(arr, new Comparator<Item>() {
-            public int compare(Item a, Item b){
-                double itm1 = (double)(a.value) / (double)(a.weight);
-                double itm2 = (double)(b.value) / (double)(b.weight);
-                if(itm1 < itm2)
-                    return 1;
-                else if(itm1 > itm2)
-                    return -1;
-                else 
-                    return 0;
-            }
+        Arrays.sort(arr, (a, b) -> {
+            double x = (double)a.value / a.weight;
+            double y = (double)b.value / b.weight;
+            return Double.compare(y, x);
         });
         
         int currWeight = 0;
-        double findValue = 0.0;
+        double currValue = 0;
         
-        for(int i = 0; i < n; i++) {
-            if(currWeight + arr[i].weight <= W){
-                currWeight += arr[i].weight;
-                findValue += arr[i].value;
+        for(int i = 0; i < arr.length; i++) {
+            if(currWeight + arr[i].weight <= W) {
+                currWeight += arr[i].weight; 
+                currValue += arr[i].value;
             }
             else {
-                int remaining = W - currWeight;
-                findValue += ((double)arr[i].value / (double)arr[i].weight) * (double)(remaining);
+                int rem = W - currWeight;
+                currValue += ((double)arr[i].value / (double)arr[i].weight) * (double)rem;
                 break;
             }
         }
-        return findValue;
+        return currValue;
     }
 }
