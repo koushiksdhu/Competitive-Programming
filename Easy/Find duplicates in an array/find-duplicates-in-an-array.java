@@ -25,18 +25,20 @@ class GFG {
 class Solution {
     public static ArrayList<Integer> duplicates(int arr[], int n) {
         HashMap<Integer, Integer> hm = new HashMap<>();
-       ArrayList<Integer> al = new ArrayList<>();
-       for(int i : arr){
-           hm.put(i, hm.getOrDefault(i, 0) + 1);
-       }
-       
-       for(int i : hm.keySet()){
-           if(hm.get(i) > 1)
+        for(int i : arr) {
+            hm.put(i, hm.getOrDefault(i, 0) + 1);
+        }
+        
+        ArrayList<Integer> al = new ArrayList<>();
+        for(int i : hm.keySet()) {
+            if(hm.get(i) > 1)
                 al.add(i);
-       }
-       Collections.sort(al);
-       if(al.size() == 0)
+        }
+        if(al.size() == 0) {
             al.add(-1);
-       return al;
+            return al;
+        }
+        Collections.sort(al);
+        return al;
     }
 }
