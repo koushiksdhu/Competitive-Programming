@@ -1,4 +1,4 @@
-<h2><a href="https://practice.geeksforgeeks.org/problems/missing-number-in-array1416/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article">Missing number in array</a></h2><h3>Difficulty Level : Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given an array of size&nbsp;<strong>N-1</strong>&nbsp;such that it only contains distinct integers in the range of&nbsp;<strong>1&nbsp;to N</strong>. Find the missing element.</span></p>
+<h2><a href="https://www.geeksforgeeks.org/problems/missing-number-in-array1416/1?page=1&difficulty=Easy&sortBy=submissions">Missing number in array</a></h2><h3>Difficulty Level : Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given an array of size&nbsp;<strong>N-1</strong>&nbsp;such that it only contains distinct integers in the range of&nbsp;<strong>1&nbsp;to N</strong>. Find the missing element.</span></p>
 <p><span style="font-size: 18px;"><strong>Example 1:</strong></span></p>
 <pre><span style="font-size: 18px;"><strong>Input:
 </strong>N = 5
