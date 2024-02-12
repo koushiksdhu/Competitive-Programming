@@ -25,16 +25,17 @@ class GFG{
 class Solution{
     static long sequence(int n){
        
-       long MOD = (int)(1e9+7);
-       long ans = 0, num = 1;
-       for(int i = 0; i < n; i++) {
-           long val = 1;
-           for(int j = 0; j <= i; j++) {
-               val = ((val % MOD) * num++) % MOD;
-           }
-           ans = (ans % MOD + val % MOD) % MOD;
-       }
-       return ans;
+      return HandlerFunction(n, 1, 1);
        
+    }
+    static long HandlerFunction(long n, long start, long counter) {
+        if(n == 0)
+            return 0;
+        long val = 1, MOD = (long)(1e9+7);
+        for(int num = 1; num <= counter; num++) {
+            val = (val % MOD * start++) % MOD;
+        }
+        
+        return (val % MOD + HandlerFunction(n-1, start, counter + 1) % MOD) % MOD;
     }
 }
