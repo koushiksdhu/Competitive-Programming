@@ -34,16 +34,14 @@ public class Main {
 class Solution {
     long sumBitDifferences(int[] arr, int n) {
         long sum = 0;
+        
         for(int i = 0; i < 32; i++) {
-            long c0 = 0, c1 = 0;
-            for(int j = 0; j < arr.length; j++) {
-                if((arr[j] & 1) == 0)
-                    c0++;
-                else
-                    c1++;
-                arr[j] = arr[j] >> 1;
+            long count = 0;
+            for(int j = 0; j < n; j++) {
+                if((arr[j] & (1 << i)) == 0)
+                    count++;
             }
-            sum += 2 * c0 * c1;
+            sum += count * (n - count) * 2;
         }
         return sum;
     }
