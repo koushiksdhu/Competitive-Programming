@@ -2,10 +2,7 @@
 
 class Solution:
     def minOperations(self, N):
-        ans = N
-        ans *= N
-        ans >>= 2
-        return ans
+        return (N * N) >> 2
 
 
 #{ 
