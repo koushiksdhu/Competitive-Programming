@@ -16,24 +16,17 @@ import java.util.*;
 
 class Solution
 {
-    ArrayList<Long> findMissing(long A[], long B[], int N, int M)
+    ArrayList<Integer> findMissing(int a[], int b[], int n, int m)
     {
-        HashMap<Long, Integer> hm = new LinkedHashMap<>();
-        ArrayList<Long> al = new ArrayList<>();
-        
-        for(long i : B) {
-            hm.put(i, hm.getOrDefault(i, 0) + 1);
-        }
-        
-        for(long i : A) {
-            if(hm.containsKey(i)) {
-               
-            }
-            else {
+        HashSet<Integer> hs = new HashSet<>();
+        ArrayList<Integer> al = new ArrayList<>();
+        for(int i : b)
+            hs.add(i);
+            
+        for(int i : a) {
+            if(!hs.contains(i))
                 al.add(i);
-            }
         }
-        
         return al;
     }
 }
@@ -60,18 +53,18 @@ class Array {
             //int y =Integer.parseInt(q[2]);
             String line1 = br.readLine();
             String[] a1 = line1.trim().split("\\s+");
-            long a[] = new long[n];
+            int a[] = new int[n];
             for (int i = 0; i < n; i++) {
-                a[i] = Long.parseLong(a1[i]);
+                a[i] = Integer.parseInt(a1[i]);
             }
             String line2 = br.readLine();
             String[] a2 = line2.trim().split("\\s+");
-            long b[] = new long[m];
+            int b[] = new int[m];
             for (int i = 0; i < m; i++) {
-                b[i] = Long.parseLong(a2[i]);
+                b[i] = Integer.parseInt(a2[i]);
             }
             Solution ob = new Solution();
-            ArrayList<Long> ans=ob.findMissing(a,b,n,m);
+            ArrayList<Integer> ans=ob.findMissing(a,b,n,m);
             for (int i = 0; i < ans.size(); i++) {
                 System.out.print(ans.get(i)+" ");
             }
