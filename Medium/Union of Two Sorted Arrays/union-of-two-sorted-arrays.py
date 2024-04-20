@@ -15,10 +15,8 @@ class Solution:
         l = []
         for i in arr1:
             l.append(i)
-            
         for i in arr2:
             l.append(i)
-       
         return sorted(set(l))
 
 
