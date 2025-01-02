@@ -1,5 +1,4 @@
-<h2><a href="https://www.geeksforgeeks.org/problems/print-anagrams-together/1">Print Anagrams Together</a></h2><h3>Difficulty Level : Difficulty: Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given an array of strings, return all groups of strings that are anagrams. The groups must be created in order of their appearance in the original array. Look at the sample case for clarification.</span></p>
-<p><span style="font-size: 18px;">Note: The final output will be in&nbsp;<strong>lexicographic</strong> order.</span></p>
+<h2><a href="https://www.geeksforgeeks.org/problems/print-anagrams-together/1">Print Anagrams Together</a></h2><h3>Difficulty Level : Difficulty: Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given an array of strings, return all groups of strings that are anagrams. The strings in each group must be arranged in the order of their appearance in the original array. Refer to the sample case for clarification.</span></p>
 <p><span style="font-size: 18px;"><strong>Examples:</strong></span></p>
 <pre><span style="font-size: 18px;"><strong>Input: </strong>arr[] = ["act", "god", "cat", "dog", "tac"]
 <strong>Output: </strong>[["act", "cat", "tac"], ["god", "dog"]]<strong>
